@@ -15,5 +15,8 @@ while i <= n:
 # Sequence (0 -> n) : range(0, n + 1)
 
 for i in range(0, n + 1):
+  a = 5 # global to the entire file
   if not i % 2:
     print(i)
+
+print(a) # 5

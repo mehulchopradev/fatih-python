@@ -6,3 +6,5 @@ b = float(input('Enter breadth : '))
 
 p = perimeter(l, b)
 print(p)
+
+# scope of variables in python is either the function or the entire script file

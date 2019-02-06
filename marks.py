@@ -9,6 +9,7 @@ marks = float(input('Enter marks : '))
 '''
 
 if marks > 100 or marks < 0:
+  a = 5 # global to the entire file
   print('I')
 elif marks >= 70:
   print('A')
