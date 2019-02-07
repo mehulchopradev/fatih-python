@@ -5,53 +5,60 @@
   # a class defines a data type for an object
 
   # actor characteristics - object attributes (name, gender, roll, marks)
+  # real world actions happen on actors - methods to be called on the respective objects
 
 class Student:
-  def __init__(self, name, gender, roll, marks):
+
+  # class attribute
+  count = 0
+
+  def __init__(self, name, gender, roll, marks, contactnos=[]):
     # constructor
+
+    # object attributes
     self.name = name
     self.gender = gender
     self.roll = roll
     self.marks = marks
+    if isinstance(contactnos, list):
+      self.contactnos = contactnos
+    else:
+      self.contactnos = []
 
-s1 = Student('mehul', 'm', 10, 90.5) # 3002
-'''
-1 - memory is reserved in the RAM object : 3002
-2 - Student.__init__(3002, 'mehul', 'm', 10, 90.5)
-'''
+    # increment
+    Student.count += 1 # access a class attribute
 
-'''s1.name = 'mehul'
-s1.gender = 'm'
-s1.roll = 10
-s1.marks = 90.5'''
+  def getdetails(self):
+    part1 = 'Name : ' + self.name + '\nGender : ' + self.gender + '\nRoll : ' + str(self.roll)\
+    + '\nMarks : ' + str(self.marks) + '\n'
+
+    if self.contactnos:
+      part2 = '|'.join(self.contactnos)
+    else:
+      part2 = 'No contact nos'
+
+    return part1 + part2
 
 
-s2 = Student('jane', 'f', 11, 89) # 3004
-'''
-1 - memory is reserved in the RAM object : 3004
-2 - Student.__init__(3004, 'mehul', 'm', 10, 90.5)
-'''
+  def getgrade(self):
+    marks = self.marks
+    if marks > 100 or marks < 0:
+      return 'I'
+    elif marks >= 70:
+      return 'A'
+    elif marks >= 60:
+      return 'B'
+    elif marks >= 40:
+      return 'C'
+    else:
+      return 'F'
 
-'''s2.name = 'jane'
-s2.gender = 'f'
-s2.roll = 11
-s2.marks = 89'''
+# print(__name__)
 
-# print(type(s1))
-# print(type(s2))
+# when run the module itself - __main__
+# when run as part of import in another module - student
 
-'''print(s1.name)
-print(s2.name)
-print(s1.roll)
-print(s2.gender)'''
-
-s3 = Student('jill', 'f', 13, 90)
-
-s3.studentname = 'jill'
-s3.gen = 'f'
-s3.roll = 13
-s3.m = 90
-
-print(s1.name)
-print(s2.name)
-print(s3.name)
+if __name__ == '__main__':
+  s1 = Student(name='fatih', gender='m', marks=45, roll=10, contactnos=['86868768'])
+  print(s1.getdetails())
+  print(s1.getgrade())
