@@ -22,3 +22,7 @@ print(oddsmorethan5)
 
 squares = [n ** 2 for n in nos]
 print(squares)
+
+tu = ('mehul', 'jane', 'fatih')
+nt = (e for e in tu)
+print(nt)

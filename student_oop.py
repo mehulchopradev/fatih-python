@@ -2,6 +2,12 @@ from student import Student
 # print(Student.count)
 
 s1 = Student('mehul', 'm', 10, 90.5) # 3002
+name, roll = s1.getnameroll() # dereferencing
+
+'''name = nr[0]
+roll = nr[1]'''
+print(name)
+print(roll)
 '''
 1 - memory is reserved in the RAM object : 3002
 2 - Student.__init__(3002, 'mehul', 'm', 10, 90.5)
@@ -61,6 +67,23 @@ studentlist = [s1, s2, s3]
   print(student.getdetails())'''
 
 # get a new list of student names who have scored above 80
-above80 = [student.name for student in studentlist if student.marks > 80]
+'''above80 = [student.name for student in studentlist if student.marks > 80]
 for name in above80:
-  print(name)
+  print(name)'''
+
+smap = {10: s1, 11: s2, 13: s3}
+sroll = int(input('Enter roll : '))
+# flist = [student for student in studentlist if student.roll == sroll]
+
+'''for student in studentlist:
+  if student.roll == sroll:
+    print(student.getdetails())
+    break
+else:
+  # will execute if the corresponding for block was completely exhausted in its iteration
+  print('No records found')'''
+
+if sroll in smap:
+  print(smap[sroll].getdetails())
+else:
+  print('No records found')

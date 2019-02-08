@@ -53,6 +53,9 @@ class Student:
     else:
       return 'F'
 
+  def getnameroll(self):
+    return (self.name, self.roll)
+
 # print(__name__)
 
 # when run the module itself - __main__
