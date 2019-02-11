@@ -17,8 +17,8 @@ class Student:
 
     # object attributes
     self.name = name
-    self.gender = gender
-    self.roll = roll
+    self.__gender = gender # private to the class student
+    self.__roll = roll # private
     self.marks = marks
     if isinstance(contactnos, list):
       self.contactnos = contactnos
@@ -29,8 +29,13 @@ class Student:
     Student.count += 1 # access a class attribute
 
   def getdetails(self):
-    part1 = 'Name : ' + self.name + '\nGender : ' + self.gender + '\nRoll : ' + str(self.roll)\
-    + '\nMarks : ' + str(self.marks) + '\n'
+    '''part1 = 'Name : ' + self.name + '\nGender : ' + self.gender + '\nRoll : ' + str(self.roll)\
+    + '\nMarks : ' + str(self.marks) + '\n' '''
+
+    # part1 = 'Name : {0}\nGender : {1}\nRoll : {2}\nMarks : {3}'.format(self.name, self.gender, self.roll, self.marks)
+    # part1 = 'Name : {name}\nGender : {gender}\nRoll : {roll}\n'.format(name=self.name, gender=self.gender, roll=self.roll)
+
+    part1 = f'Name: {self.name}\nGender : {self.__gender}\nRoll : {self.__roll}\nMarks : {self.marks}'
 
     if self.contactnos:
       part2 = '|'.join(self.contactnos)
@@ -56,6 +61,15 @@ class Student:
   def getnameroll(self):
     return (self.name, self.roll)
 
+  # Encapsulation
+  def setroll(self, roll):
+    if roll > 0:
+      self.__roll = roll
+
+  def getroll(self):
+    return self.__roll
+
+
 # print(__name__)
 
 # when run the module itself - __main__
@@ -63,5 +77,9 @@ class Student:
 
 if __name__ == '__main__':
   s1 = Student(name='fatih', gender='m', marks=45, roll=10, contactnos=['86868768'])
-  print(s1.getdetails())
-  print(s1.getgrade())
+  s1.__gender = 'o' # still not work
+  s1.__roll = -10
+  s1.setroll(12)
+  print(s1.getroll())
+  # print(s1.getdetails())
+  # print(s1.getgrade())
