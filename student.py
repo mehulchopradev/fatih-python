@@ -8,42 +8,43 @@
   # real world actions happen on actors - methods to be called on the respective objects
 
 from address import Address # composition association
+from collegeuser import CollegeUser
 
-class Student:
+# subclass / Child class
+class Student(CollegeUser):
 
   # class attribute
   count = 0
 
   def __init__(self, name, gender, roll, marks, contactnos=[], address=None):
     # constructor
+    super().__init__(name, gender, contactnos, address)
+    # CollegeUser.__init__(self, name, gender, contactnos, address)
 
     # object attributes
-    self.name = name
-    self.gender = gender
     self.roll = roll
-
     self.marks = marks
-    if isinstance(contactnos, list):
-      self.contactnos = contactnos
-    else:
-      self.contactnos = []
-
-    if isinstance(address, Address):
-      self.address = address
-    else:
-      self.address = None
 
     # increment
     Student.count += 1 # access a class attribute
 
+  # method overriding
   def getdetails(self):
+    part1 = super().getdetails()
+    # CollegeUser.getdetails(self)
+
+    part2 = f'\nRoll : {self.roll}\nMarks : {self.marks}'
+
+    return part1 + part2
+
+  # def getdetails(self):
     '''part1 = 'Name : ' + self.name + '\nGender : ' + self.gender + '\nRoll : ' + str(self.roll)\
     + '\nMarks : ' + str(self.marks) + '\n' '''
 
     # part1 = 'Name : {0}\nGender : {1}\nRoll : {2}\nMarks : {3}'.format(self.name, self.gender, self.roll, self.marks)
     # part1 = 'Name : {name}\nGender : {gender}\nRoll : {roll}\n'.format(name=self.name, gender=self.gender, roll=self.roll)
 
-    part1 = f'Name: {self.name}\nGender : {self.gender}\nRoll : {self.roll}\nMarks : {self.marks}'
+    '''part1 = f'Name: {self.name}\nGender : {self.gender}\nRoll : {self.roll}\nMarks : {self.marks}'
 
     if self.contactnos:
       part2 = '|'.join(self.contactnos)
@@ -55,7 +56,7 @@ class Student:
     else:
       part3 = '\nNo address'
 
-    return part1 + part2 + part3
+    return part1 + part2 + part3'''
 
 
   def getgrade(self):
@@ -87,18 +88,6 @@ class Student:
       self.__roll = roll
     else:
       self.__roll = None
-
-  @property
-  def gender(self):
-    return self.__gender
-
-  @gender.setter
-  def gender(self, gender):
-    if gender == 'm' or gender == 'f':
-      self.__gender = gender
-    else:
-      self.__gender = None
-
 
 # print(__name__)
 
