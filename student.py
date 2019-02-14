@@ -14,7 +14,7 @@ from collegeuser import CollegeUser
 class Student(CollegeUser):
 
   # class attribute
-  count = 0
+  __count = 0
 
   def __init__(self, name, gender, roll, marks, contactnos=[], address=None):
     # constructor
@@ -26,7 +26,7 @@ class Student(CollegeUser):
     self.marks = marks
 
     # increment
-    Student.count += 1 # access a class attribute
+    Student.__count += 1 # access a class attribute
 
   # method overriding
   def getdetails(self):
@@ -58,7 +58,7 @@ class Student(CollegeUser):
 
     return part1 + part2 + part3'''
 
-
+  # object function
   def getgrade(self):
     marks = self.marks
     if marks > 100 or marks < 0:
@@ -87,7 +87,11 @@ class Student(CollegeUser):
     if roll > 0:
       self.__roll = roll
     else:
-      self.__roll = None
+      raise ValueError('Roll no cannot be negative')
+
+  # class function
+  def getcount():
+    return Student.__count
 
 # print(__name__)
 
@@ -98,12 +102,12 @@ if __name__ == '__main__':
   s1 = Student(name='fatih', gender='f', marks=45, roll=10, contactnos=['86868768'],\
       address=Address('Indian','MH','Mumbai','400053'))
   s1.roll = -100
-  s1.gender = 'm'
+  '''s1.gender = 'm'
 
   s1.gender = 'o'
 
   s1.gender = 'm'
-  s1.roll = 23
+  s1.roll = 23'''
   print(s1.getdetails())
   #print(s1.gender)
   #print(s1.roll)

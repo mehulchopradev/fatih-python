@@ -1,5 +1,5 @@
 from student import Student
-# print(Student.count)
+print(Student.getcount())
 
 s1 = Student('mehul', 'm', 10, 90.5) # 3002
 name, roll = s1.getnameroll() # dereferencing
