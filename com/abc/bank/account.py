@@ -1,4 +1,5 @@
 from com.abc.bank.insufficientfundserror import InsufficientFundsError
+from time import sleep
 
 class Account:
   minbalance = 1000
@@ -20,6 +21,8 @@ class Account:
 
       if self.accbalance - amt < Account.minbalance:
         raise InsufficientFundsError('Cannot withdraw. Minimum balance not getting maintained')
+
+      sleep(5) # some delay
 
       self.accbalance -= amt
       return self.accbalance
