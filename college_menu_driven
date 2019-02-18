@@ -1,0 +1,68 @@
+1. Enter Student data
+2. Enter Professor data
+3. Search Student
+4. Search Professor
+5. List all professors
+6. Exit
+Enter ur choice: 1
+Enter Name:
+Enter gender:
+Enter roll:
+Enter marks:
+Does the student have contact nos (y/n): y
+How many contact nos: 2
+Enter Contact no 1:
+Enter Contact no 2:
+Do you have address details (y/n): y
+Enter Country:
+Enter state:
+Enter city:
+Enter pincode:
+
+Success! Student added
+1. Enter Student data
+2. Enter Professor data
+3. Search Student
+4. Search Professor
+5. List all professors
+6. Exit
+Enter ur choice: 2
+Enter Name:
+Enter gender:
+How many subjects: 2
+Enter subject 1:
+Enter subject 2:
+Does the professor have contact nos (y/n): y
+How many contact nos: 2
+Enter Contact no 1:
+Enter Contact no 2:
+Do you have address details (y/n): y
+Enter Country:
+Enter state:
+Enter city:
+Enter pincode:
+
+Success! Professor added
+1. Enter Student data
+2. Enter Professor data
+3. Search Student
+4. Search Professor
+5. List all professors
+6. Exit
+Enter ur choice: 3
+Enter roll no: 10
+<<if student found, display the details>>
+<<if not found, display not found>>
+
+1. Enter Student data
+2. Enter Professor data
+3. Search Student
+4. Search Professor
+5. List all professors
+6. Exit
+Enter ur choice: 4
+Enter name:
+<<if professor found, display the details>>
+<<if not found, display not found>>
+
+Note: Data should be persisted and retained on every run of the program (pickle)
