@@ -1,0 +1,18 @@
+- Database
+  - Parties Table
+    - id
+    - name
+    - votes
+
+- Client
+  Enter the party to vote for in the format (VOTE <<party-name>>)
+  Display whatever response comes from the server
+
+
+- Server
+  - Gets the data from the client (VOTE <<part-name>>)
+  - If the data is not in the asked format send "Please enter vote in right format" message to the client
+  - Check whether the party represented by the party-name exists in the database or no
+  - If it does not exist, send "Please enter the right party name" message to the client
+  - If the party exist, increment the vote in the database by 1 and send "Vote successful" message
+  to the client
